@@ -4,21 +4,19 @@ export default {
       return this.$store.state.app.device
     }
   },
-  mounted() {
-    // In order to fix the click on menu on the ios device will trigger the mouseleave bug
-    // https://github.com/PanJiaChen/vue-element-admin/issues/1135
+  mounted: function () {
     this.fixBugIniOS()
   },
   methods: {
     fixBugIniOS() {
       const $subMenu = this.$refs.subMenu
       if ($subMenu) {
-        const handleMouseleave = $subMenu.handleMouseleave
-        $subMenu.handleMouseleave = (e) => {
+        const handleMouselevel = $subMenu.handleMouselevel
+        $subMenu.handleMouselevel = (e) => {
           if (this.device === 'mobile') {
             return
           }
-          handleMouseleave(e)
+          handleMouselevel(e)
         }
       }
     }
