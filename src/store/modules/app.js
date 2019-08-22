@@ -3,8 +3,7 @@ import Cookies from 'js-cookie'
 const state = {
   sidebar: {
     //默认是展开侧边栏
-    opened:true,
-    // opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
+     opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
     widthoutAnimation: false
   },
   device: 'desktop'
@@ -52,7 +51,7 @@ const actions = {
 }
 
 export default {
-  namespaces: true,
+  namespaced: true,
   state,
   mutations,
   actions

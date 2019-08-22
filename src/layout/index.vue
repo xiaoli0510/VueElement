@@ -6,17 +6,19 @@
             <div :class="{'fixed-header':fixedHeader}">
                 <navbar/>
             </div>
+            <app-main/>
         </div>
     </div>
 </template>
 <script>
-import { Navbar, Sidebar } from "./components";
+import { Navbar, Sidebar,AppMain } from "./components";
 import { mapGetters } from "vuex";
 export default {
   name: "Layout",
   components: {
     Navbar,
-    Sidebar
+    Sidebar,
+    AppMain
   },
   computed: {
     ...mapGetters(["opened", "widthoutAnimation", "device"]),

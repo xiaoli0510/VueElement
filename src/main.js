@@ -12,6 +12,7 @@ import '@/styles/index.scss'//global css
 import App from './App'
 import router from './router'
 import store from './store'
+Vue.config.devtools = true;
 
 Vue.use(ElementUI,{locale})
 Vue.config.productionTip = false

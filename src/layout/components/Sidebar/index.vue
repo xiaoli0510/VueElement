@@ -28,10 +28,7 @@ export default {
   components: { Logo,SidebarItem },
   computed: {
     ...mapGetters(["sidebar"]),
-    //获取路由表
     routes() {
-        console.log(this.$router)
-        console.log(this.$router.options)
       return this.$router.options.routes;
     },
     //当前激活菜单
@@ -53,7 +50,6 @@ export default {
       //return this.$store.state.settings.sidebarLogo;
     },
     variables() {
-      console.log(variables)
        return variables;
     }
   }

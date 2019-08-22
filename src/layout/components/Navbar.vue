@@ -1,11 +1,52 @@
 <template>
   <div class="navbar">
+        <!-- 汉堡 控制侧边栏的展开和收缩 -->
+    <hamburger :is-active="sidebar.opened"  class="hamburger-container" @toggleClick="toggleSideBar"/>
+    <!-- 面包屑 -->
+    <breadcrumb class="breadcrumb-container"/>
+    <div class="right-menu">
+      <el-dropdown class="avatar-container" trigger="click">
+        <div class="avatar-wrapper">
+          <img src="https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png" class="user-avatar">
+          <i class="el-icon-caret-bottom"></i>
+        </div>
+        <el-dropdown-menu slot="dropdown" class="user-dropdown">
+          <router-link to="/">
+            <el-dropdown-item>Home</el-dropdown-item>
+          </router-link>
+          <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
+            <el-dropdown-item divided>Github</el-dropdown-item>
+          </a>
+          <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
+            <el-dropdown-item divided>Docs</el-dropdown-item>
+          </a>
+          <el-dropdown-item divided>
+            <div @click="logout">Log Out</div>
+          </el-dropdown-item>
+        </el-dropdown-menu>
+    </el-dropdown>
 
+    </div>
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
+import Hamburger from "@/components/Hamburger";
+import Breadcrumb from "@/components/Breadcrumb";
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  components: { Hamburger, Breadcrumb },
+  computed: {
+    ...mapGetters(["sidebar"])
+  },
+  methods: {
+    toggleSideBar() {
+      this.$store.dispatch("app/toggleSideBar");
+    },
+    async logout(){
+      alert('退出成功');
+    }
+  }
 };
 </script>
 
