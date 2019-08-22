@@ -1,16 +1,6 @@
 module.exports = {
-  showSettings: true,
-  title: 'Vue Admin Template1234',
-
-  /**
-   * @type {boolean} true | false
-   * @description Whether fix the header
-   */
-  fixedHeader: false,
-
-  /**
-   * @type {boolean} true | false
-   * @description Whether show the logo in sidebar
-   */
-  sidebarLogo: true
+    title:'Vue admin Template',//网页title
+    fixedHeader:false,
+    showSettings:false,//是否显示设置
+    sidebarLogo:true//是否显示侧边栏logo组件
 }
